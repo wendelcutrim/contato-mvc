@@ -7,7 +7,7 @@ const ContatosController = {
     listarContatos: (req,res) =>{
         // Importanto os contatos do usuário
         let listaDecontatos = require(`../database/contatos_${uid}.json`);
-        res.render('home', {contatos: contatos});
+        res.render('home', {contatos: listaDecontatos});
     },
     capturarContato: (req,res) =>{
         const {id} = req.params;

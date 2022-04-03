@@ -3,10 +3,19 @@ const app = express();
 const port = 3000;
 const path = require('path');
 const ContatosRouter = require('./routes/ContatosRouter');
+const UsuariosRouter = require('./routes/UsuariosRouter');
 
 //Configuração do template engine
 app.set('view engine', 'ejs');
 app.set('views', path.resolve("views"));
+
+//Configuração de arquivos estáticos
+app.use(express.static('public'));
+
+//Configuração para receber dados em json
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 
 // Rotas
 app.get('/', (req,res) => {
@@ -14,6 +23,7 @@ app.get('/', (req,res) => {
 });
 
 app.use('/', ContatosRouter);
+app.use('/', UsuariosRouter);
 
 
 // Rodar a nossa aplicação

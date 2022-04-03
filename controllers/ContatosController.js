@@ -16,7 +16,7 @@ const ContatosController = {
         if(!buscarUsuario){
             res.send({msg:"Contato não encontrando ou não existe"});
         }else{
-            res.send(buscarUsuario);
+            res.json(buscarUsuario);
         }
     }
 };

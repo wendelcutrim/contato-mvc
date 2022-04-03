@@ -22,3 +22,13 @@ form .controles {
     margin-top: 40px;
     margin-bottom: 0;
 }
+
+.feedback{
+    color: #ff9900;
+    font-weight: bold;
+}
+
+.feedback ul{
+    list-style: square;
+    color: #ff9900;
+}

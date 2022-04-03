@@ -16,8 +16,6 @@
 </head>
 
 <body>
-
-
     <form action="/registrar" method="post">
         <label>
             Nome:
@@ -39,6 +37,9 @@
             <button type="reset" class="link">Cancelar</button>
             <button type="submit">Registrar</button>
         </div>
+        <% if(typeof(errors) != 'undefined') { %>
+            <p class="feedback">ERRORS</p>
+        <% } %>
     </form>
 
 </body>

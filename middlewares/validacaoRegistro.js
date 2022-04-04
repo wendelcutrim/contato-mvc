@@ -1,4 +1,5 @@
-const { check } = require('express-validator');
+const { check, body } = require('express-validator');
+let UsuariosController = require('../controllers/UsuariosController');
 
 const validateUserRegister = [
     check('nome')

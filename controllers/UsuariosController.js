@@ -6,14 +6,6 @@ const { check, validationResult, body} = require('express-validator');
 
 const UsuariosController = {
     showRegistrar: (req, res) => {
-        /*  const { nome, email, senha, confirmacao } = req.query;
-         const user = {
-             nome,
-             email,
-             senha,
-             confirmacao
-         }
-         console.log(user); */
         res.render('registro');
     },
 
@@ -23,6 +15,8 @@ const UsuariosController = {
 
         let errors = validationResult(req);
         console.log(errors);
+        console.log(errors.mapped())
+
         if (errors.isEmpty()) {
             //Capturar as informações enviadas pelo usuário;
             const { nome, email, senha, confirmacao } = req.body;
@@ -49,7 +43,7 @@ const UsuariosController = {
 
             res.redirect('/contatos');
         }else{
-            res.render('registro', { errors: errors.mapped(), old: req.body });
+            res.render('registro', { listaDeErros: errors.mapped(), old: req.body });
         }
 
     }

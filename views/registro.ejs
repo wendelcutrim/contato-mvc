@@ -37,8 +37,14 @@
             <button type="reset" class="link">Cancelar</button>
             <button type="submit">Registrar</button>
         </div>
-        <% if(typeof errors != 'undefined') { %>
-            <p class="feedback">ERRORS</p>
+        <% if(typeof listaDeErros !== 'undefined') { %>
+            <p class="feedback">Erros:</p>
+            <ul>
+                <% for(let e in listaDeErros) { %>
+                    <li style="color: white"><%= listaDeErros[e].msg%></li>
+                <% } %>
+            </ul>
+            
         <% } %>
     </form>
 

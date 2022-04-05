@@ -16,5 +16,11 @@
         "nome": "Sakura Haruno",
         "email": "sakura@teste.com",
         "senha": "$2b$10$f9ElcnNIDjjG6GDx/qX8VOepwk7bPB.I01tEiwA9OSR7AJptx6KtW"
+    },
+    {
+        "id": 4,
+        "nome": "Teste",
+        "email": "teste@mail.com",
+        "senha": "$2a$10$2jMruZTbCJHp9gfxntG5LOIf1lFgJ.j2vPjPlQkCwfJhPtHdaeEM."
     }
 ]

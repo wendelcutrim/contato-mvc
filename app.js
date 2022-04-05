@@ -4,6 +4,7 @@ const port = 3000;
 const path = require('path');
 const ContatosRouter = require('./routes/ContatosRouter');
 const UsuariosRouter = require('./routes/UsuariosRouter');
+const marcaEntradaDaRequisicao = require('./middlewares/marcaEntradaDaRequisicao');
 
 //Configuração do template engine
 app.set('view engine', 'ejs');
@@ -16,6 +17,8 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+//Middlewares global
+app.use(marcaEntradaDaRequisicao);
 
 // Rotas
 app.get('/', (req,res) => {

@@ -9,7 +9,8 @@ module.exports = (req, res, next) => {
 
     // Escrever em um arquivo (com quebra de linha)
     fs.appendFileSync("hora_acessada.txt", `O ip: ${userIp}, acessou a URL ${req.url} em ${dataHora} \n`);
-    next();
+    
     //executar a função next para direcionar a req para o próximo middleware
+    next();
 }
 

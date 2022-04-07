@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const path = require('path');
+const session = require('express-session');
 const ContatosRouter = require('./routes/ContatosRouter');
 const UsuariosRouter = require('./routes/UsuariosRouter');
 const marcaEntradaDaRequisicao = require('./middlewares/marcaEntradaDaRequisicao');
@@ -16,6 +17,13 @@ app.use(express.static('public'));
 //Configuração para receber dados em json
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+//Configurando o uso da session, middleware global.
+app.use(session({
+    secret: 'segredo',
+    resave: false,
+    saveUninitialized: false,
+}))
 
 //Middlewares global
 app.use(marcaEntradaDaRequisicao);

@@ -49,6 +49,26 @@ const UsuariosController = {
         fs.writeFileSync(path.resolve("database", "usuarios.json"), novaListaDeUsuariosEmJson);
 
         res.redirect('/contatos');
+    },
+
+    mostrarLogin: (req, res) => {
+        res.render('login');
+    },
+
+    login: (req, res) => {
+        const { email, senha } = req.body;
+        let usuario = usuarios.find((user) => user.email == email);
+        if(!usuario){
+            res.render('login', {errors: "E-mail/Senha estão incorretos ou não existe"});
+        }
+
+        if(!bcrypt.compareSync(senha, usuario.senha)){
+            res.render('login', {errors: "E-mail/Senha estão incorretos ou não existe" })
+        }
+
+        req.session.usuario = usuario;
+
+        res.redirect('/contatos');
     }
 }
 

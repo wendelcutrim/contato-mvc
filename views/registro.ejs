@@ -16,29 +16,36 @@
 </head>
 
 <body>
-
-
     <form action="/registrar" method="post">
         <label>
             Nome:
-            <input type="text" name="nome" id="nome">
+            <input type="text" name="nome" id="nome" placeholder="Insira o seu nome completo" value="<%= locals.old && old.nome %>">
         </label>
         <label>
             E-mail:
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" placeholder="mail@mail.com" value="<%= locals.old && old.email %>">
         </label>
         <label>
             Senha:
-            <input type="password" name="senha" id="senha">
+            <input type="password" name="senha" placeholder= "Insira uma senha" id="senha">
         </label>
         <label>
             Confirmação de Senha:
-            <input type="password" name="confirmacao" id="confirmacao">
+            <input type="password" name="confirmacao" placeholder= "Confirme a sua senha" id="confirmacao">
         </label>
         <div class="controles">
             <button type="reset" class="link">Cancelar</button>
             <button type="submit">Registrar</button>
         </div>
+        <% if(typeof listaDeErros !== 'undefined') { %>
+            <p class="feedback">Erros:</p>
+            <ul>
+                <% for(let e in listaDeErros) { %>
+                    <li style="color: white"><%= listaDeErros[e].msg%></li>
+                <% } %>
+            </ul>
+            
+        <% } %>
     </form>
 
 </body>

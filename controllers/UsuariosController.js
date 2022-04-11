@@ -57,11 +57,11 @@ const UsuariosController = {
         const { email, senha } = req.body;
         let usuario = usuarios.find((user) => user.email == email);
         if(!usuario){
-            res.render('login', {errors: "E-mail/Senha estão incorretos ou não existe"});
+            res.render('login', {errors: "E-mail/Senha estão incorretos ou não existe", email});
         }
 
         if(!bcrypt.compareSync(senha, usuario.senha)){
-            res.render('login', {errors: "E-mail/Senha estão incorretos ou não existe" })
+            res.render('login', { errors: "E-mail/Senha estão incorretos ou não existe" })
         }
 
         req.session.usuario = usuario;
